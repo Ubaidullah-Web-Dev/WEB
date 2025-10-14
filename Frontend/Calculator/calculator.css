@@ -1,0 +1,113 @@
+body {
+    margin: 0px auto;
+    padding: 10px;
+    width: 30%;
+    background-color: gray;
+}
+
+.main-div {
+    border: 2px solid black;
+    border-radius: 30px;
+    padding-top: 30px;
+    background-color: #808080;
+}
+
+.top-area {
+    padding-bottom: 30px;
+    padding-left: 15px;
+    background-color: #808080;
+    justify-content: center;
+}
+
+.form {
+    width: 80%;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 30px;
+    background-color: #cfe3e4;
+    font-size: 50px;
+}
+
+.container {
+    display: grid;
+    background-color: #212529;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+.container>div {
+    background-color: transparent;
+    text-align: center;
+}
+
+.item {
+    font-size: 22px;
+    height: 90px;
+}
+
+.error {
+    background-color: red;
+    color: white;
+    /* makes text readable */
+}
+
+.button {
+    font-size: 30px;
+    color: aliceblue;
+    height: 100%;
+    width: 100%;
+    background-color: gray;
+    border-radius: 50px;
+    box-shadow: 2px 3px aqua;
+}
+
+.button:hover {
+    background-color: black;
+    color: yellow;
+    cursor: pointer;
+    box-shadow: 0px 0px;
+}
+
+.button-s {
+    font-size: 32px;
+    color: orange;
+    height: 100%;
+    width: 100%;
+    background-color: gray;
+    border-radius: 50px;
+    box-shadow: 2px 3px aqua;
+}
+
+.syntax-error {
+    background-color: green;
+    color: white;
+}
+
+
+.button-s:hover {
+    background-color: black;
+    color: orangered;
+    cursor: pointer;
+    box-shadow: 0px 0px;
+}
+
+.button-ss {
+    font-size: 32px;
+    color: white;
+    height: 100%;
+    width: 100%;
+    background-color: orange;
+    border-radius: 50px;
+    box-shadow: 2px 3px aqua;
+}
+
+.button-ss:hover {
+    background-color: greenyellow;
+    color: black;
+    cursor: pointer;
+    box-shadow: 0px 0px;
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url(https://wallpapers.com/images/featured/blank-white-7sn5o1woonmklx1h.jpg);
+            background-color: aliceblue;
+        }
+        #heading1{
+            text-align: center;
+            background-color: gray;
+        }
+        #para1{
+            text-align: center;
+            color: blueviolet;
+            font-size: 150%;
+            font-weight: 900;
+        }
+        #para2{
+            margin: 50px 500px 50px 500px;
+        }
+        #para3{
+            border: 5px solid red;
+            background-color: rebeccapurple;
+            padding: 50px;
+            text-align: center;
+            font-size: 150%;
+            color: aliceblue;
+        }
+        #main {
+            width: 220px;
+            height: 200px;
+            border: 2px solid black;
+            display: flex;
+            flex-direction: 0;
+            justify-content:center;
+        }
+        #main div{
+            flex: 1;
+            flex-grow: 0;
+            flex-shrink: 0;
+            flex-basis: 50px;
+            justify-content:end;
+        }
+        #main div:nth-of-type(1) {
+            flex-basis: 1px;
+            text-align: center;
+            padding: 1px;
+            border: 2px solid black;
+        }
+        #main div:nth-of-type(2){
+            flex-basis: 1px;
+            text-align: center;
+            padding: 1px;
+            border: 2px solid black;
+        }
+        #main div:nth-of-type(3){
+            flex-basis: 1px;
+            text-align: center;
+            padding: 1px;
+            border: 2px solid black;
+
+        }
+        #main div:nth-of-type(4){
+            flex-basis: 3px;
+            text-align: center;
+            padding: 5px;
+            border: 1px solid black;
+
+        }
+        div.a {
+            height: 50%;
+            width: 50%;
+            border: 1px solid black;
+            font-size: 100%;
+            text-align: center;
+            border-radius: 25px;
+        }   
+        div.b {
+            height: 100%;
+            width: 70%;
+            border: 5px double black;
+            font-size: 100%;
+            text-align: center;
+            border-radius: 35px 10px;
+        }
+        div.c{
+            height: auto;
+            width: auto;
+            border: 3px dotted black;
+            font-size: 100%;
+            text-align: center;
+            border-radius: 10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="heading1">This is the first heading</h1><br>
+    <p id="para1">This is the first paragraph</p><br>
+    <div class="a">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+        semper diam at erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus
+        diam, consequat gravida libero rhoncus ut. Maecenas imperdiet felis nisi, fringilla
+        luctus felis hendrerit sit amet. Pellentesque interdum, nisl nec interdum maximus,
+        augue diam porttitor lorem, et sollicitudin felis neque sit amet erat.
+    </div><br>
+    <div class="b">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+        semper diam at erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus
+        diam, consequat gravida libero rhoncus ut. Maecenas imperdiet felis nisi, fringilla
+        luctus felis hendrerit sit amet. Pellentesque interdum, nisl nec interdum maximus,
+        augue diam porttitor lorem, et sollicitudin felis neque sit amet erat.
+    </div><br>
+    <div class="c">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+        semper diam at erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus
+        diam, consequat gravida libero rhoncus ut. Maecenas imperdiet felis nisi, fringilla
+        luctus felis hendrerit sit amet. Pellentesque interdum, nisl nec interdum maximus,
+        augue diam porttitor lorem, et sollicitudin felis neque sit amet erat.
+    </div>
+    <p id="para2">This para is used to practice margins</p>
+    <p id="para3"><b>This para is used to practice paddings</b></p>
+    <div id="main">
+        <div style="background-color: red;">RED</div>
+        <div style="background-color: blue;">BLUE</div>
+        <div style="background-color: green;">GREEN</div>
+        <div style="background-color: yellow;">YELLOW</div>
+    </div>
+    
+</body>
+</html>

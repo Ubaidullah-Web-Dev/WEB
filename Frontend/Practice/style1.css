@@ -1,0 +1,117 @@
+body{
+    margin: 0px auto;
+}
+.simple-grid{
+    padding: 20px;
+    font-size: 30px;
+}
+.container-1{
+    display: grid;
+    background-color: dodgerblue;
+    grid-template-columns: auto auto;
+}
+.container-1 > div {
+    background-color: aliceblue;
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+}
+.item-1{
+    font-size: 22px;
+}
+.item-2{
+    font-size: 22px;
+}
+.item-3{
+    font-size: 22px;
+}
+.item-4{
+    font-size: 22px;
+}
+
+
+
+.advanced-grid{
+    padding: 20px;
+    font-size: 30px;
+}
+.container-2{
+    display: grid;
+    background-color: greenyellow;
+    grid-template-columns: 100px 200px 220px 320px;
+    row-gap: 50px;
+    column-gap: 25px;
+}
+.container-2 > div{
+    background-color: aliceblue;
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+}
+.a-item-1{
+    font-size: 22px;
+    /* grid-area: 1 / 1 / span 1 / span 1; */
+    /* grid-column-start: 1; */
+    /* grid-row-end: 3; */
+}
+.a-item-2{
+    font-size: 22px;
+}
+.a-item-3{
+    font-size: 22px;
+}
+.a-item-4{
+    font-size: 22px;
+}
+.a-item-5{
+    font-size: 22px;
+}
+.a-item-6{
+    font-size: 22px;
+}
+
+
+
+
+
+.final-grid{
+    padding: 20px;
+    font-size: 30px;
+}
+.container-3{
+    display: grid;
+    background-color: dodgerblue;
+    grid-template-columns: auto auto auto;
+    place-content: center space-evenly;
+    padding: 20px;
+
+}
+.container-3 > div{
+    background-color: aliceblue;
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+}
+.f-item-1{
+    font-size: 22px;
+    grid-column: 1 / span 4;
+}
+.f-item-2{
+    font-size: 22px;
+    grid-column: 1 / span 2;
+}
+.f-item-3{
+    font-size: 22px;
+    grid-column: 3 / span 2;
+}
+.f-item-4{
+    font-size: 22px;
+    grid-column: 1 / span 3;
+}
+.f-item-5{
+    font-size: 22px;
+}
+.f-item-6{
+    font-size: 22px;
+    grid-column: 1 / span 4;
+}

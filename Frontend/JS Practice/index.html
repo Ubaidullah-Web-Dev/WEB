@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Practice</title>
+    <link rel="icon" type="image" href="Bulb.png">
+</head>
+
+<body>
+    <script>
+        for (let i = 1; i <= 10; i++) {
+            let x = "";
+            for (let j = 1; j <= 10; j++) {
+                if (i === 1 || i === 10 || j === 1 || j === 10 || i === j || i + j === 11) {
+                    x += "* ";
+                }
+                else {
+                    x = "";
+                }
+            }
+            console.log(x);
+        }
+
+        {
+            for (let i = 1; i <= 5; i++) {
+                let x = "";
+                for (let j = 1; j <= 5; j++) {
+                    if (j < i) {
+                        x += " ";
+                    } else {
+                        x += "* ";
+                    }
+                }
+                console.log(x)
+            }
+        }
+
+        {
+            for (let i = 1; i <= 5; i++) {
+                let x = "";
+                for (let j = 1; j <= 5; j++) {
+                    if (j > 6 - i) {
+                        x += "* ";
+                    } else {
+                        x += " ";
+                    }
+                }
+                console.log(x)
+            }
+        }
+
+        {
+            function afunction(some) {
+                console.log(some);
+            }
+            function mynumbers(num1, num2, mycallback) {
+                let sum = num1 + num2;
+                mycallback(sum);
+            }
+            mynumbers(5, 6, afunction);
+        }
+
+        {
+            function myfunction(some) {
+                console.log(some);
+            }
+            function mynumbers(num1, num2, mycallback) {
+                let sum = num1 + num2;
+                mycallback(sum);
+            }
+            mynumbers(9, 9, myfunction)
+        }
+
+        {
+            setTimeout(myFunction, 1000);
+            function myFunction() {
+                console.log("Hi!");
+            }
+        }
+
+        { console.log('afterset time out'); }
+
+        {
+            setTimeout(myfunction, 1000);
+            function myfunction() {
+                console.log("Hi!");
+            }
+        }
+
+        {
+            // let mypromise = new Promise(function(resolve,reject){
+            //     let x = 100;
+            //     if (x===100) {
+            //          setTimeout(function() {
+            //             resolve(x);
+            //         }, 5000);
+            //     }
+            //     else{
+            //         console.log("Error");
+            //     }
+            // });
+
+            // mypromise.then(function(value){console.log(value);}, function(error){console.log(error);}
+            // )
+            // This is a promise that fetches data from a public API
+            let mypromise = new Promise(function (resolve, reject) {
+                fetch('https://jsonplaceholder.typicode.com/todos/1') // API call
+                    .then(response => {
+                        if (!response.ok) {
+                            reject('Network response was not ok'); // reject if HTTP error
+                        }
+                        return response.json(); // parse JSON
+                    })
+                    .then(data => {
+                        resolve(data); // resolve the promise with the data
+                    })
+                    .catch(error => {
+                        reject(error); // reject if fetch fails
+                    });
+            });
+
+            mypromise.then(
+                function (value) {
+                    console.log("Data received:", value); // success
+                },
+                function (error) {
+                    console.log("Error:", error); // error
+                }
+            );
+
+            console.log('after promse');
+        }
+
+        {
+            async function myFunction() {
+                return "Working";
+            }
+            myFunction().then(
+                function (value) { console.log(value); },
+                function (error) { console.log(value); }
+            );
+        }
+
+        {
+            let promise = new Promise(function (resolve, reject) {
+                resolve("Promise worked successfully!");
+            });
+
+            promise.then(function (value) {
+                console.log(value);
+            });
+        }
+
+        {
+            let promise = new Promise(function (resolve, reject) {
+                reject("Something went wrong!");
+            });
+
+            promise.catch(function (error) {
+                console.log(error);
+            });
+
+        }
+    </script>
+</body>
+
+</html>

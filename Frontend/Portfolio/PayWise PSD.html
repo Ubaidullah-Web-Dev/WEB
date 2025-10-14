@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAYWISE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <style>
+        .background-color {
+            background: linear-gradient(to right, #42c67b, #279c61);
+        }
+
+        .hero-heading {
+            border-bottom: 5px solid white;
+            border-radius: 5px;
+        }
+
+        .currency-box {
+            border: 2px solid #fff;
+            border-radius: 6px;
+            height: 70px;
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 600;
+            width: 50%;
+        }
+
+        .currency-box .currency {
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        .exchange-btn {
+            background: #f6c454;
+            color: #333;
+            font-weight: 600;
+            border-radius: 6px;
+            padding: 12px 20px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin: 3rem;
+            perspective: 1000px;
+        }
+
+        .card {
+            padding: 2rem;
+            border-radius: 12px;
+            background: #EFEEB4;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: box-shadow 0.3s ease;
+
+            /* Fade-in on load */
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        .card:hover {
+            box-shadow: 0 20px 40px rgb(0, 0, 0),
+                30px 0 70px rgba(0, 0, 0, 0.857);
+            padding: 34px;
+            background-color: #42c67b;
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(120deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent);
+            transform: skewX(-20deg);
+            pointer-events: none;
+        }
+
+        .card:hover::after {
+            animation: shimmer 2s infinite;
+        }
+
+        .pop-up:hover {
+            box-shadow: 0 20px 40px rgb(0, 0, 0),
+                30px 0 70px rgb(0, 0, 0);
+
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -75%;
+            }
+
+            100% {
+                left: 125%;
+            }
+        }
+
+        .petal-1 {
+            background-color: #DAD873;
+            color: black;
+        }
+
+        .petal-2 {
+            background-color: #FFCDC2;
+        }
+
+        .card-btn-bottom {
+            background-color: #F8BF88;
+        }
+
+        .btn-hover:hover {
+            transition: all 0.8s ease-in-out;
+            width: 100px;
+            height: 50px;
+            transform: translateY(10px);
+            border-radius: 20px;
+            background-color: #279c61;
+        }
+
+        .link-hover:hover {
+            color: darkcyan;
+            border-bottom: 3px solid grey;
+            margin: 0px;
+        }
+
+        .icon-hover:hover {
+            width: 30px;
+            height: 30px;
+        }
+
+        .arrow-hover:hover {
+            transform: translateY(10px);
+            transition: all 0.8s ease-in-out;
+        }
+
+        .section,
+        .reveal {
+            opacity: 0;
+            transform: translateY(var(--reveal-ty, 24px)) translateX(var(--reveal-tx, 0));
+            filter: blur(6px);
+            transition:
+                opacity 1.5s ease,
+                transform 1.5s cubic-bezier(.19, 1, .22, 1),
+                filter 1.5s ease;
+            will-change: opacity, transform, filter;
+        }
+
+        .section.is-visible,
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translate(0, 0);
+            filter: blur(0);
+        }
+
+        .from-left {
+            --reveal-tx: -32px;
+            --reveal-ty: 0;
+        }
+
+        .from-right {
+            --reveal-tx: 32px;
+            --reveal-ty: 0;
+        }
+
+        .from-bottom {
+            --reveal-ty: 32px;
+        }
+
+        .delay-1 {
+            transition-delay: .10s;
+        }
+
+        .delay-2 {
+            transition-delay: .25s;
+        }
+
+        .delay-3 {
+            transition-delay: .40s;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .section,
+            .reveal {
+                transition: none;
+                opacity: 1 !important;
+                transform: none !important;
+                filter: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-color">
+        <header>
+            <nav class="navbar navbar-dark d-lg-none">
+                <div class="container">
+                    <div class="d-flex justify-content-center">
+                        <img src="fad_logo-juce.png" class="">
+                        <p class="text-white fw-bold d-grid align-items-center m-0">PAYWISE</p>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </nav>
+            <div class="container d-lg-none">
+                <div class="collapse" id="navbarToggleExternalContent">
+                    <div class="row align-items-center justify-content-between p-5">
+                        <div class="flex-column align-items-center nav list-unstyled justify-content-center gap-4">
+                            <li class="nav-item"><a class="text-white text-decoration-none fw-bold fs-4">Home</a></li>
+                            <li class="nav-item"><a class="text-white text-decoration-none fw-bold fs-4">Features</a>
+                            </li>
+                            <li class="nav-item"><a class="text-white text-decoration-none fw-bold fs-4">Cards</a></li>
+                            <li class="nav-item"><a class="text-white text-decoration-none fw-bold fs-4">Contact</a>
+                            </li>
+                        </div>
+                        <div class="d-flex flex-column align-items-center nav justify-content-center gap-4">
+                            <li class="nav-item d-grid align-items-center m-0 pt-4"><a
+                                    class="text-white text-decoration-none fw-bold fs-4 link-hover">Log in</a></li>
+                            <li class="nav-item"><button class="btn btn-warning fs-4">Sign Up</button></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-none d-lg-block">
+                <div class="container pt-3">
+                    <div class="row align-items-center justify-content-arouund">
+                        <div class="col-md-6 col-lg-4 d-flex justify-content-lg-center pe-5 justify-content-md-start">
+                            <img src="fad_logo-juce.png" class="">
+                            <p class="text-white fw-bold d-grid align-items-center m-0">PAYWISE</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 nav list-unstyled justify-content-center gap-4">
+                            <li class="nav-item"><a class="text-white text-decoration-none link-hover">Home</a></li>
+                            <li class="nav-item"><a class="text-white text-decoration-none link-hover">Features</a></li>
+                            <li class="nav-item"><a class="text-white text-decoration-none link-hover">Cards</a></li>
+                            <li class="nav-item"><a class="text-white text-decoration-none link-hover">Contact</a></li>
+                        </div>
+                        <div class="col-md-12 col-lg-4 nav justify-content-center gap-5">
+                            <li class="nav-item d-grid align-items-center m-0"><a
+                                    class="text-white text-decoration-none link-hover">Log in</a></li>
+                            <li class="nav-item"><button class="btn btn-warning btn-hover">Sign Up</button></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="section from-right reveal pt-5" data-reveal="repeat">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="left-hero-section col-sm-12 col-md-5 col-lg-6 d-grid justify-content-center">
+                            <h2 class="text-white fw-bold fs-1 d-grid align-items-end m-0 hero-heading pb-3">Your
+                                Next<br>
+                                Online Bank.</h2>
+                            <div class="bottom-left-hero-section d-flex gap-4 pt-3">
+                                <div class="nav">
+                                    <li class="nav-item">
+                                        <p class="text-white fw-bold fs-2 link-hover">6X</p>
+                                        <p class="text-white">Lorem ipsum<br>Dolar Sit Amet,</p>
+                                    </li>
+                                </div>
+                                <div class="nav">
+                                    <li class="nav-item">
+                                        <p class="text-white fw-bold fs-2 link-hover">-15%</p>
+                                        <p class="text-white">Lorem ipsum<br>Dolar Sit Amet,</p>
+                                    </li>
+                                </div>
+                                <div class="nav">
+                                    <li class="nav-item">
+                                        <p class="text-white fw-bold fs-2 link-hover">3M+</p>
+                                        <p class="text-white">Lorem ipsum<br>Dolar Sit Amet,</p>
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right-div-section col-lg-6 col-md-7 col-sm-12 d-grid align-items-end">
+                            <img src="hero.png" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </section>
+    </div>
+    <section class="reveal  from-bottom" data-reveal="repeat">
+        <div class="container">
+            <div class="row">
+                <div class="top-part col-12 justify-content-center m-0 d-grid p-5">
+                    <p class="text-success fw-bold fs-1 text-center">One Mission. Two Cards</p>
+                    <p class="text-black text-center">We are providing our clients two cards for their one<br>mission
+                        and
+                        finance
+                    </p>
+                </div>
+                <div
+                    class="bottom-part col-lg-6 col-md-6 col-sm-12 d-lg-flex d-md-flex w-100 d-sm-grid gap-5 justify-content-around pb-5 justify-content-sm-between">
+                    <div class="card">
+                        <div class="p-3">
+                            <button class="btn petal-1 fs-5 p-3">Petal 1</button>
+                        </div>
+                        <div class="p-3">
+                            <p class="fw-bold text-warning fs-3">Expanding Access<br>Through Technology</p>
+                            <ul class="list fw-light lh-5">
+                                <li class="text-dark p-2">No annual fee(Late and returned less apply</li>
+                                <li class="text-black p-2">$500 - $5,000 limits</li>
+                                <li class="text-black p-2">APRs 19.99% - 29.49%</li>
+                                <li class="text-black p-2">2% - 10% cash back at select merchants</li>
+                            </ul>
+                            <div class="p-2">
+                                <button class="btn btn-danger p-2 text-black card-btn-bottom fs-5 p-3">Learn
+                                    More</button>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <img src="Group 13.png" class="img-fluid pop-up">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="p-3">
+                            <button class="btn petal-2 fs-5 p-3">Petal 2</button>
+                        </div>
+                        <div class="p-3">
+                            <p class="fw-bold text-warning fs-3">Expanding Access<br>Through Technology</p>
+                            <ul class="list fw-light lh-5">
+                                <li class="text-dark p-2">No annual fee(Late and returned less apply</li>
+                                <li class="text-black p-2">$500 - $5,000 limits</li>
+                                <li class="text-black p-2">APRs 19.99% - 29.49%</li>
+                                <li class="text-black p-2">2% - 10% cash back at select merchants</li>
+                            </ul>
+                            <div class="p-2">
+                                <button class="btn btn-danger p-2 text-black card-btn-bottom fs-5 p-3">Learn
+                                    More</button>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <img src="Group 69.png" class="img-fluid pop-up">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section from-left delay-2 reveal" data-reveal="repeat">
+        <div class="background-color">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6 col-sm-12 text-white pt-5">
+                        <p class="fw-bold fs-2">Our Online And ATM<br>Exchange Rates</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing<br>elit. Lorem ipsum dolor sit
+                            amet,
+                            consectetur adipiscing elit.</p>
+
+                        <div class="mt-4 ms-5 pt-5 pb-5">
+                            <div class="d-flex justify-content-start align-items-center mb-3">
+                                <span class="me-3 fs-5">USD</span>
+                                <span class="fw-bold me-4 fs-4">71,35 ▼</span>
+                                <span class="fw-bold fs-4">76,55 ▼</span>
+                            </div>
+                            <div class="d-flex justify-content-start align-items-center">
+                                <span class="me-3 fs-5">EUR</span>
+                                <span class="fw-bold me-4 fs-4">84,98 ▼</span>
+                                <span class="fw-bold fs-4">85,98 ▼</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 col-md-6 col-sm-12 ms-auto pb-5">
+                        <div class="mb-4">
+                            <p class="text-white">i'd like to sell</p>
+                            <div class="currency-box d-flex justify-content-between align-items-center px-3 ms-5">
+                                <span class="amount">10,000</span>
+                                <span class="currency">RUB</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <p class="text-white">i’ll get</p>
+                            <div class="currency-box d-flex justify-content-between align-items-center px-3 me-5">
+                                <span class="amount">112,00</span>
+                                <span class="currency">RUB</span>
+                            </div>
+                        </div>
+                        <button class="btn exchange-btn">Exchange Money</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section  from-bottom reveal" data-reveal="repeat">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 col-sm-12 p-5 g-5">
+                    <div class="card p-4">
+                        <p class="text-black fw-bold fs-3">Bank Transfer</p>
+                        <p class="text-black">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus
+                            molestias
+                            placeat dolores sint itaque quasi repudiandae iste tenetur vel, quaerat quod fugiat,
+                            quae
+                            nisi at saepe porro quis! Reiciendis, perferendis?</p>
+                    </div>
+                    <div class="card mt-5 p-4">
+                        <p class="text-black fw-bold fs-3">Bank Transfer</p>
+                        <p class="text-black">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus
+                            molestias
+                            placeat dolores sint itaque quasi repudiandae iste tenetur vel, quaerat quod fugiat,
+                            quae
+                            nisi at saepe porro quis! Reiciendis, perferendis?</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 p-5 d-grid justify-content-center align-items-center">
+                    <img src="Vector69.png">
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 p-5 g-5">
+                    <div class="card p-4">
+                        <p class="text-black fw-bold fs-3">Bank Transfer</p>
+                        <p class="text-black">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus
+                            molestias
+                            placeat dolores sint itaque quasi repudiandae iste tenetur vel, quaerat quod fugiat,
+                            quae
+                            nisi at saepe porro quis! Reiciendis, perferendis?</p>
+                    </div>
+                    <div class="card mt-5 p-4">
+                        <p class="text-black fw-bold fs-3">Bank Transfer</p>
+                        <p class="text-black">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus
+                            molestias
+                            placeat dolores sint itaque quasi repudiandae iste tenetur vel, quaerat quod fugiat,
+                            quae
+                            nisi at saepe porro quis! Reiciendis, perferendis?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+    <footer class="background-color">
+        <section class="section from-bottom reveal" data-reveal="repeat">
+            <div class="container p-5">
+                <div class="row">
+                    <div class="left-footer col-lg-6 col-md-6 col-sm-12">
+                        <div>
+                            <div class="d-flex">
+                                <img src="fad_logo-juce.png">
+                                <p class="text-white fw-bold fs-3 m-0 align-items-center">PAYWISE</p>
+                            </div>
+                            <div>
+                                <p class="text-white fs-5 fw-bold pt-4 pb-3">Subscribe to keep up with the<br>latest
+                                    news
+                                </p>
+                            </div>
+                            <div class="d-flex gap-2 align-items-center">
+                                <input type="text" placeholder="Enter your Email" class="form-control w-75">
+                                <button class="btn btn-warning m-0 arrow-hover"><img src="Arrow 1.png"></button>
+                            </div>
+                            <div>
+                                <p class="text-white py-3">By submitting this form you acknowledge that you have
+                                    the<br>terms of our Privacy Statement</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-footer col-lg-6 col-md-6 col-sm-12">
+                        <div class="d-flex gap-5 p-5">
+                            <ul class="list-unstyled fw-bold lh-lg">
+                                <li>
+                                    <a class="text-white text-decoration-none link-hover">Solutions</a>
+                                </li>
+                                <li>
+                                    <a class="text-white text-decoration-none link-hover">Mastercard</a>
+                                </li>
+                                <li>
+                                    <a class="text-white text-decoration-none link-hover">Louis Vuitton</a>
+                                </li>
+                                <li>
+                                    <a class="text-white text-decoration-none link-hover">Gillete</a>
+                                </li>
+                                <li>
+                                    <a class="text-white text-decoration-none link-hover">Apple</a>
+                                </li>
+                                <li>
+                                    <a class="text-white text-decoration-none link-hover">General Electric</a>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled fw-bold lh-lg">
+                                <li>
+                                    <a class="text-white text-decoration-none link-hover">Solutions</a>
+                                </li>
+                                <li>
+                                    <a class="text-white text-decoration-none link-hover">Mastercard</a>
+                                </li>
+                                <li>
+                                    <a class="text-white text-decoration-none link-hover">Louis Vuitton</a>
+                                </li>
+                                <li>
+                                    <a class="text-white text-decoration-none link-hover">Gillete</a>
+                                </li>
+                                <li>
+                                    <a class="text-white text-decoration-none link-hover">Apple</a>
+                                </li>
+                                <li>
+                                    <a class="text-white text-decoration-none link-hover">General Electric</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bottom-footer d-flex gap-5 col-12 justify-content-center">
+                        <p class="text-white m-0">Copyright @Foodhub 2022</p>
+                        <div class="d-flex gap-3 align-items-center">
+                            <img src="Group.png" width="20px" height="20px" class="icon-hover">
+                            <img src="Group2.png" width="20px" height="20px" class="icon-hover">
+                            <img src="Group3.png" width="20px" height="20px" class="icon-hover">
+                            <img src="Group4.png" width="20px" height="20px" class="icon-hover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.section, .reveal');
+
+            if (!('IntersectionObserver' in window)) {
+                const fallback = () => {
+                    const h = window.innerHeight || document.documentElement.clientHeight;
+                    items.forEach(el => {
+                        const r = el.getBoundingClientRect();
+                        if (r.top <= h * 0.9) el.classList.add('is-visible');
+                    });
+                };
+                fallback();
+                window.addEventListener('scroll', fallback, { passive: true });
+                return;
+            }
+
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const el = entry.target;
+                    const repeat = el.dataset.reveal === 'repeat';
+
+                    if (entry.isIntersecting) {
+                        el.classList.add('is-visible');
+                        if (!repeat) io.unobserve(el);
+                    } else if (repeat) {
+                        el.classList.remove('is-visible');
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.12,
+                rootMargin: '0px 0px -10% 0px'
+            });
+
+            items.forEach(el => io.observe(el));
+        });
+    </script>
+
+</body>
+
+</html>

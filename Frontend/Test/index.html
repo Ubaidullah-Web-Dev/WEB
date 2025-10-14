@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GD Psd</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    .glass-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.08);
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+    .glass-btn:active {
+      transform: scale(0.95);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+    .neon-btn {
+      background: linear-gradient(135deg, #DA722C, #26308c);
+      color: #fff;
+      font-weight: bold;
+      padding: 14px 35px;
+      font-size: 18px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.4s ease-in-out;
+      box-shadow: 0 0 10px rgba(111, 125, 251, 0.6), 0 0 20px rgba(38, 48, 140, 0.5);
+    }
+    .neon-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px darkgray, 0 0 30px #26308c, 0 0 45px #6f7dfb;
+      background: linear-gradient(135deg, #26308c, #DA722C);
+    }
+    .neon-btn:active {
+      transform: scale(0.95);
+      box-shadow: 0 0 8px rgba(111, 125, 251, 0.7);
+    }
+    .hero-toggler {
+      border-radius: 30px;
+    }
+    .background-color {
+      background: linear-gradient(#6F7DFB, #26308C);
+    }
+    .T-btn {
+      width: 170px;
+      height: 65px;
+      border-radius: 900px;
+      transition: step-start 0.5s step-end 0s;
+    }
+    .T-btn:hover {
+      width: 250px;
+      height: 65px;
+    }
+    .Line-behind-cards {
+      background-color: #0b2c3d;
+      width: 30px;
+      height: 530px;
+      margin-top: 10px;
+      border-radius: 50px;
+      left: 280px;
+    }
+  </style>
+</head>
+<body>
+    <div class="background-color">
+    <!-- Navbar -->
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="bg-dark p-4">
+        
+        <div class="container">
+          <ul class="nav flex-column text-center">
+            <li class="nav-item"><a class="nav-link text-light fs-4">About</a></li>
+            <li class="nav-item"><a class="nav-link text-light fs-4">Services</a></li>
+            <li class="nav-item"><a class="nav-link text-light fs-4">Our Work</a></li>
+            <li class="nav-item m-auto"><button class="btn bg-warning rounded-4 T-btn m-auto">Enroll Now</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-dark bg-primary">
+      <div class="container">
+        <h1 class="text-white fw-bold fs-1 mt-1 d-lg-none">GD.</h1>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- Desktop Header -->
+    <header class="d-none d-lg-block">
+      <div class="container d-flex justify-content-between align-items-center p-3">
+        <div class="text-white fs-1 fw-bold">GD.</div>
+        <ul class="nav align-items-center">
+          <li class="nav-item"><a class="nav-link text-white fs-5 fw-bold me-lg-3">About</a></li>
+          <li class="nav-item"><a class="nav-link text-white fs-5 fw-bold me-lg-3">Services</a></li>
+          <li class="nav-item"><a class="nav-link text-white fs-5 fw-bold me-lg-3">Our Work</a></li>
+          <li class="nav-item"><a class="btn btn-dark fs-4 fw-bold p-2 rounded-pill">Enroll Now</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+      <div class="container hero-section mt-5">
+        <div class="row align-items-center">
+          <div class="col-lg-5 col-md-12">
+            <h1 class="text-white mt-5" style="font-size: 70px; font-weight:900;">Learn the art of Game Dev</h1>
+            <p class="text-white my-4 fs-5">This is a comprehensive course on Game Development. You will learn everything from generating an idea to publishing your games to different platforms.</p>
+            <button type="button" class="neon-btn mb-5">
+              <svg class="mb-1 me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+              </svg>
+              Enrol Now
+            </button>
+          </div>
+          <div class="col-lg-7 col-md-12 d-flex justify-content-center">
+            <div class="d-flex flex-column align-items-center">
+              <div class="text-center bg-white hero-toggler shadow-lg mb-3 p-3">
+                <p class="text-dark fw-bold fs-3 m-0">32K</p>
+                <p class="text-dark fs-5">Students Enrolled</p>
+              </div>
+              <div class="text-center bg-white hero-toggler shadow p-3">
+                <p class="text-dark fw-bold fs-3 m-0">4.7 <img src="emojione_star.png"></p>
+                <p class="text-dark fs-5">Student Rating</p>
+              </div>
+              <div><img class="img-fluid mt-3" src="hero-image 1.png" alt="Hero Image"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Cards Section -->
+  <section class="my-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-sm-12 d-flex justify-content-end">
+          <div>
+            <div class="Line-behind-cards position-absolute"></div>
+            <div class="card rounded-5 shadow-lg my-4" style="width: 300px;">
+              <p class="mb-0 p-3 rounded-4 text-white bg-primary fw-bold">This is a great course. It helped me a lot. Thank you :)</p>
+              <div class="d-flex justify-content-between align-items-center p-3 rounded-bottom">
+                <div>
+                  <h4 class="mb-0 fw-bold" style="font-size: 30px;">Jane Cooper</h4>
+                  <p class="text-muted">Developer, Sony</p>
+                </div>
+                <img width="120" height="120" src="Ellipse 2.png" alt="Jane">
+              </div>
+            </div>
+            <div class="card rounded-5 shadow-lg my-4" style="width: 300px;">
+              <p class="mb-0 p-3 text-white bg-danger rounded-4 fw-bold">Amazing Work! Well done!</p>
+              <div class="d-flex justify-content-between align-items-center p-3 rounded-bottom">
+                <div>
+                  <h4 class="mb-0 fw-bold" style="font-size: 30px;">Jacob Jones</h4>
+                  <p class="text-muted">Designer, Facebook</p>
+                </div>
+                <img width="120" height="120" src="Ellipse 1.png" alt="Jacob">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <h1 class="display-4 mt-5 fw-bold" style="font-size: 50px;">What our students say</h1>
+          <p>All students get access to all the videos and also the source code of the projects.
+            <br>You will also have access to a private Discord channel where you can discuss your doubts.</p>
+          <button class="btn btn-danger px-4 text-center text-white rounded-pill fs-5" style="padding: 20px;font-weight: 900;">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses Section -->
+  <section class="bg-primary py-5">
+    <div class="container">
+      <h1 class="text-center text-white mb-5 fw-bold" style="font-size: 50px;">Our Courses</h1>
+      <div class="row justify-content-center gap-5">
+        <div class="card rounded-5" style="width: 20rem;">
+          <img class="card-img-top" src="Rectangle 7.png" alt="Game Design Essentials">
+          <div class="card-body">
+            <h5 class="fw-bold">Game Design Essentials</h5>
+            <p class="text-end fw-bold text-dark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+              </svg>
+              8 HRS
+            </p>
+          </div>
+        </div>
+        <div class="card rounded-5" style="width: 20rem;">
+          <img class="card-img-top" src="Rectangle 6.png" alt="Unity Fundamentals">
+          <div class="card-body">
+            <h5 class="fw-bold">Unity Game Engine Fundamentals</h5>
+            <p class="text-end fw-bold text-dark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+              </svg>
+              8 HRS
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="text-end mt-4">
+        <button class="btn btn-danger text-white rounded-pill px-4">All Courses</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- App Section -->
+  <section class="mt-5">
+    <div class="container text-center">
+      <h3 class="display-6 fw-bold" style="font-size: 40px;">Get our App</h3>
+      <p>You can use our app for a better experience on smartphones</p>
+      <div class="d-flex justify-content-center gap-3 p-3 flex-wrap">
+        <button class="btn btn-dark btn-lg border-0 d-flex align-items-center gap-2">
+          <img height="40" src="Vector.png"> Apple Store
+        </button>
+        <button class="btn btn-dark btn-lg border-0 d-flex align-items-center gap-2">
+          <img height="40" src="Group 8.png"> Google Play
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark pt-4 mt-5">
+    <div class="container text-white">
+      <div class="row">
+        <div class="col-md-4 text-center mb-4">
+          <h5 class="text-warning">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li>About Us</li>
+            <li>Contact Us</li>
+            <li>Privacy Policy</li>
+            <li>Terms & Conditions</li>
+          </ul>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+          <h5 class="text-warning">Course</h5>
+          <ul class="list-unstyled">
+            <li>Login</li>
+            <li>Download</li>
+            <li>All Courses</li>
+          </ul>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+          <h5 class="text-warning">Contact Us</h5>
+          <ul class="list-unstyled">
+            <li>contact@email.com</li>
+            <li class="p-3">
+              <img height="24" src="Vectorb1.png">
+              <img height="24" class="ms-3" src="Vectorb2.png">
+            </li>
+            <li>
+              <div class="input-group justify-content-center">
+                <input type="email" class="form-control rounded-start-pill" placeholder="Email Address" style="max-width: 250px;">
+                <button class="btn btn-dark text-white rounded-end-pill px-4" style="background-color:#0b2c3d;">Subscribe</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="text-center mt-4">
+          <p>This Template is developed by Ubaid</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

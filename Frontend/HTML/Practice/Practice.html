@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>This is a title</title>
+    <style>
+        progress {
+            accent-color: hsl(260, 95%, 58%);
+        }
+        #main {
+            width: 70px;
+            height: 300px;
+            border: 2px solid black;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        #main div{
+            width: 70px;
+            height: 70px;
+        }
+    </style>
+</head>
+<body>
+    <p>This is an example of Accent color</p>
+    <progress id="progress1" value="77" max="100"> 77% </progress>
+    <div id="main">
+        <div style="background-color: coral;"></div>
+        <div style="background-color: lightblue;"></div>
+        <div style="background-color: pink;"></div>
+    </div>
+</body>

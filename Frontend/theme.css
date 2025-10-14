@@ -1,0 +1,40 @@
+:root {
+  --bg-color: #1e1e2e;
+  --fg-color: #cdd6f4;
+  --accent-color: #f38ba8;
+  --secondary-color: #313244;
+}
+
+body {
+  background-color: var(--bg-color) !important;
+  color: var(--fg-color) !important;
+}
+
+.ytmusic-player-page,
+.ytmusic-nav-bar,
+.ytmusic-app-layout,
+#layout {
+  background-color: rgba(30, 30, 46, 0.8) !important;
+  backdrop-filter: blur(25px) saturate(1.2);
+}
+
+.ytmusic-play-button-renderer {
+  color: var(--accent-color) !important;
+}
+
+a, .ytmusic-settings-menu a {
+  color: var(--accent-color) !important;
+}
+
+button, .ytmusic-menu-renderer {
+  border-radius: 12px !important;
+  background: var(--secondary-color) !important;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color);
+  border-radius: 10px;
+}

@@ -1,0 +1,81 @@
+body{
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    background-color: #212529;
+}
+
+.container{
+    width: 50%;
+    margin: 0px auto;
+    color: aliceblue;
+}
+
+header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 900;
+}
+
+nav ul{
+    display: flex;
+    gap: 10px;
+}
+
+nav ul li{
+    list-style: none;
+} 
+
+nav ul li a{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+main .H1{
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    color: aliceblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main .container{
+    justify-content: center;
+    text-align: center;
+    opacity: 80%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 110%;
+}
+main .B1{
+    justify-content: center;
+    text-align: center;
+    padding: 12px;
+    font-size: large;
+    cursor: pointer;
+}
+
+main .B1{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 12px;
+    border-radius: 5px;
+    color: #212529;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 900;
+}
+
+footer .para2{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+    color: aliceblue;
+}

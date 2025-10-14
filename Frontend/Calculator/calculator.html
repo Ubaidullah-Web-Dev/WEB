@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+
+<body>
+    <main>
+        <div class="main-div">
+            <div class="top-area">
+                <input class="form" id="display" type="text" type="number" readonly>
+            </div>
+            <div class="container">
+                <div class="item">
+                    <button onclick="clearAll()" class="button-s"><b>AC</b></button>
+                </div>
+                <div class="item">
+                    <button type="button" onclick="setOp('*')" class="button-s"><b>X</b></button>
+                </div>
+                <div class="item">
+                    <button type="button" class="button-s"><b>%</b></button>
+                </div>
+                <div class="item">
+                    <button type="button" onclick="setOp('/')" class="button-s"><b>÷</b></button>
+                </div>
+                <div class="item">
+                    <button type="button" onclick="display.value += '7'" class="button">7</button>
+                </div>
+                <div class="item">
+                    <button type="button" onclick="display.value += '8'" class="button">8</button>
+                </div>
+                <div class="item">
+                    <button type="button" onclick="display.value += '9'" class="button">9</button>
+                </div>
+                <div class="item">
+                    <button type="button" onclick="setOp('*')" class="button-s"><b>x</b></button>
+                </div>
+                <div class="item">
+                    <button type="button" onclick="display.value += '4'" class="button">4</button>
+                </div>
+                <div class="item">
+                    <button type="button" onclick="display.value += '5'" class="button">5</button>
+                </div>
+                <div class="item">
+                    <button type="button" onclick="display.value += '6'" class="button">6</button>
+                </div>
+                <div class="item">
+                    <button type="button" onclick="setOp('-')" class="button-s"><b>-</b></button>
+                </div>
+                <div class="item">
+                    <button type="button" onclick="display.value += '1'" class="button">1</button>
+                </div>
+                <div class="item">
+                    <button type="button" onclick="display.value += '2'" class="button">2</button>
+                </div>
+                <div class="item">
+                    <button type="button" onclick="display.value += '3'" class="button">3</button>
+                </div>
+                <div class="item">
+                    <button type="button" onclick="setOp('+')" class="button-s"><b>+</b></button>
+                </div>
+                <div class="item">
+                    <button type="button" class="button-s"><b>!</b></button>
+                </div>
+                <div class="item">
+                    <button type="button" onclick="display.value += '0'" class="button">0</button>
+                </div>
+                <div class="item">
+                    <button type="button" class="button">.</button>
+                </div>
+                <div class="item">
+                    <button type="button" onclick="calculate()" class="button-ss"><b>=</b></button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        let display = document.getElementById("display");
+        let num1 = "";
+        let num2 = "";
+        let op = "";
+
+        function setOp(operator) {
+            num1 = display.value;
+            op = operator;
+            display.value = "";
+        }
+
+        function calculate() {
+            let result;
+            display.classList.remove("error");
+            num2 = display.value;
+            switch (op) {
+                case "+":
+                    result = parseFloat(num1) + parseFloat(num2);
+                    break;
+                case "-":
+                    result = parseFloat(num1) - parseFloat(num2);
+                    break;
+                case "*":
+                    result = parseFloat(num1) * parseFloat(num2);
+                    break;
+                case "/":
+                    if (parseFloat(num2) === 0 || parseFloat(num1) === 0) {
+                        result = "Error";
+                    } else {
+                        result = parseFloat(num1) / parseFloat(num2);
+                    }
+                    break;
+                default:
+                    result = "Error";
+            }
+            display.value = result;
+            if (result === "Error") {
+                display.classList.add("error");
+            }
+        }
+
+        function clearAll() {
+            display.value = "";
+            num1 = "";
+            num2 = "";
+            op = "";
+            display.classList.remove("error");
+        }
+
+        function sameer(b) {
+            return a = 163534645;
+        }
+        sameer();
+        console.log(a);
+    </script>
+</body>
+
+</html>

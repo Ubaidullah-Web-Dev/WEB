@@ -1,0 +1,406 @@
+body {
+    margin: 0px auto;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header ul {
+    list-style: none;
+}
+
+header ul {
+    padding-inline-start: 3px;
+}
+
+.head {
+    width: 80%;
+    margin: 0px auto;
+}
+
+.top-head {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid grey;
+}
+
+.left-top-head {
+    padding: 20px;
+    padding-top: 25px;
+}
+
+.left-top-head-a {
+    font-size: 18px;
+    color: grey;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.middle-top-head {
+    padding: 12px;
+    padding-top: 20px;
+}
+
+.middle-top-head-a {
+    color: black;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.right-top-head {
+    padding: 20px;
+}
+
+.right-top-head-button {
+    font-size: 15px;
+    background-color: transparent;
+    border: 1px solid gray;
+    padding: 7px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 100;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+header button:hover {
+    background-color: grey;
+    color: white;
+}
+
+.bottom-head-ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+li a {
+    color: grey;
+    font-size: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.main {
+    width: 80%;
+    margin: 0px auto;
+}
+
+main a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.top-main {
+    background-color: #343a40;
+    margin: 0px auto;
+    padding-right: 50%;
+    padding-bottom: 60px;
+    padding-top: 50px;
+}
+
+.top-main-h1 {
+    color: white;
+    padding-left: 30px;
+    font-size: 60px;
+    font-style: italic;
+}
+
+.top-main-p {
+    color: white;
+    font-weight: 100;
+    font-size: 25px;
+    padding-left: 30px;
+    opacity: 80%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.top-main-a {
+    font-size: 25px;
+    color: white;
+    padding-left: 30px;
+    padding-bottom: 500px;
+    font-weight: 700;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.two-sections {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    padding-top: 20px;
+}
+
+.sec1 {
+    background-color: #ffffff;
+    border: 1px solid grey;
+    display: flex;
+    width: 50%;
+}
+
+.sec1-div1 {
+    width: 70%;
+    padding-bottom: 20px;
+}
+
+.sec1-div1-p {
+    color: #007bff;
+    font-size: 20px;
+    font-weight: 900;
+    padding-left: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.sec1-div1-a {
+    color: black;
+    font-size: 30px;
+    font-weight: 600;
+    padding-left: 15px;
+    text-decoration: none;
+}
+
+.sec1-div1-date {
+    padding-left: 15px;
+    font-weight: 400;
+    margin: 0px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.sec1-div1-para {
+    font-size: 20px;
+    padding-left: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.sec1-div1-anchor {
+    color: #007bff;
+    font-size: 15px;
+    padding-left: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.sec1-div2 {
+    background-color: #55595c;
+    width: 45%;
+}
+
+.sec1-div2-p {
+    color: white;
+    position: relative;
+    font-size: 20px;
+    font-weight: 700;
+    padding-top: 110px;
+    margin-left: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.bottom-main {
+    display: flex;
+    justify-content: space-between;
+
+    margin: 0px auto;
+}
+
+.left-bottom-sec1-h1 {
+    font-size: 30px;
+    font-style: italic;
+    border-bottom: 1px solid grey;
+}
+
+#left-bottom-sec1-h1 {
+    font-size: 43px;
+    padding-bottom: 0px;
+}
+
+.left-bottom-sec1-date {
+    font-size: 15px;
+    font-weight: 100;
+    padding-top: 0px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.right-bottom-main {
+    padding-left: 40px;
+
+}
+
+.right-bottom-sec1-a {
+    display: flex;
+    flex-direction: column;
+}
+
+.left-bottom-sec1-para {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+footer {
+    justify-content: center;
+    text-align: center;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.main-footer {
+    background-color: #f9f9f9;
+    padding: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.main-footer-p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+}
+
+.bottom-buttons {
+    padding-left: 50px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    gap: 30px;
+}
+
+.bottom-button {
+    padding: 15px;
+    background-color: transparent;
+    font-size: 15px;
+    border-radius: 25px;
+    border-color: #007bff;
+    width: 80px;
+}
+
+main button:hover {
+    background-color: #007bff;
+    color: #ffffff;
+}
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add an active class to highlight the current page */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+@media only screen and (max-width: 425px) {
+    .top-head {
+        flex-direction: column;
+        justify-content: center;
+        margin: 0px auto;
+    }
+
+    .head {
+        margin: 0px auto;
+    }
+
+    .left-top-head {
+        margin: 0px auto;
+    }
+
+    .middle-top-head {
+        margin: 0px auto;
+    }
+
+    .right-top-head {
+        margin: 0px auto;
+    }
+
+    .top-main-h1 {
+        font-size: 20px;
+    }
+
+    .top-main-p {
+        font-size: 20px;
+    }
+
+    .top-main {
+        padding: 20px;
+    }
+
+    .bottom-head-ul {
+        flex-direction: row;
+        justify-content: center;
+        text-align: center;
+        overflow-x: scroll;
+        padding: 10px;
+        font-size: 20px;
+        gap: 10px;
+    }
+
+    .sec1 {
+        flex-direction: column;
+        font-size: 20px;
+        gap: 0px;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .sec1-div1 {
+        gap: 0px;
+        width: 100%;
+        margin: 0px auto;
+    }
+
+    .sec1-div2 {
+        width: 100%;
+    }
+
+    .sec1-div2-p {
+        justify-content: center;
+    }
+
+    .bottom-main {
+        flex-direction: column;
+    }
+
+    .sec1-div1-a {
+        font-size: 10px;
+    }
+
+    .sec1-div1-p {
+        font-size: 2px;
+        text-align: center;
+        padding: 0px;
+        justify-content: center;
+    }
+
+    .two-sections {
+        flex-direction: column;
+        justify-content: center;
+        margin: 0px auto;
+    }
+
+    .right-bottom-sec2 {
+        text-align: left;
+    }
+
+    .right-bottom-main {
+        text-align: start;
+        justify-content: start;
+        padding: 0px;
+    }
+}

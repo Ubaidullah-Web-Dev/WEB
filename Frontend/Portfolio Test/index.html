@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lively Portfolio</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* Basic */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #0a0a0f;
+      color: #fff;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-weight: 700;
+      margin: 0 0 .6rem 0;
+    }
+
+    /* progress bar */
+    #progress-bar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 5px;
+      width: 0%;
+      background: linear-gradient(90deg, #00eaff, #ff00ff);
+      z-index: 99999;
+      transition: width .15s linear;
+    }
+
+    /* navbar */
+    .navbar {
+      background: rgba(8, 8, 12, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+    }
+
+    .navbar .nav-link {
+      color: #ddd;
+      transition: color .2s ease;
+    }
+
+    .navbar .nav-link.active,
+    .navbar .nav-link:hover {
+      color: #00eaff;
+    }
+
+    /* particles layer */
+    #particles-js {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+    }
+
+    /* cursor */
+    .cursor {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 2px solid #00eaff;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 99999;
+      transition: transform .12s linear, background .12s;
+      will-change: left, top, transform;
+      mix-blend-mode: screen;
+    }
+
+    .cursor.active {
+      transform: translate(-50%, -50%) scale(1.9);
+      background: rgba(255, 0, 255, 0.08);
+    }
+
+    /* hero */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      overflow: hidden;
+      background: linear-gradient(180deg, #07070a, #0f0f15);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://picsum.photos/1600/900?blur=2') center/cover no-repeat;
+      z-index: -3;
+      transform: scale(1.06);
+    }
+
+    .hero .content {
+      z-index: 10;
+      max-width: 960px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 6vw, 4rem);
+      letter-spacing: -1px;
+      text-transform: uppercase;
+      text-shadow: 0 0 18px rgba(255, 0, 255, 0.06);
+    }
+
+    .hero h2.typing {
+      margin-top: .6rem;
+      color: #00eaff;
+      font-weight: 600;
+      min-height: 1.4rem;
+    }
+
+    /* sections */
+    section {
+      position: relative;
+      padding: 96px 20px;
+      min-height: 60vh;
+    }
+
+    .section {
+      opacity: 1;
+    }
+
+    /* GSAP handles reveal */
+    .section-dark {
+      background: #0c0c0f;
+    }
+
+    .section-alt {
+      background: #121218;
+    }
+
+    /* cards */
+    .fancy-card {
+      background: #151520;
+      border-radius: 16px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      transition: transform .25s ease, box-shadow .25s ease;
+      overflow: hidden;
+    }
+
+    .fancy-card:hover {
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 0 30px 60px rgba(0, 234, 255, .12);
+    }
+
+    .fancy-card::after {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle, rgba(0, 234, 255, 0.06) 0%, transparent 40%);
+      transform: scale(0);
+      transition: transform .45s ease;
+    }
+
+    .fancy-card:hover::after {
+      transform: scale(1);
+    }
+
+    /* button */
+    .btn-custom {
+      background: #00eaff;
+      color: #071017;
+      border-radius: 999px;
+      padding: .6rem 1.4rem;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(0, 234, 255, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-custom:active::after {
+      width: 300px;
+      height: 300px;
+    }
+
+    .btn-custom:hover {
+      background: #ff00ff;
+      color: #fff;
+      box-shadow: 0 18px 50px rgba(255, 0, 255, 0.12);
+    }
+
+    /* horizontal gallery */
+    .horizontal-gallery {
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .gallery-track {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .gallery-card {
+      width: 360px;
+      height: 70vh;
+      flex: 0 0 auto;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #151520;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.65);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* small */
+    @media (max-width:900px) {
+      .gallery-card {
+        width: 280px;
+        height: 55vh;
+      }
+
+      .hero {
+        padding: 6rem 1rem;
+        min-height: 70vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="progress-bar"></div>
+  <div id="particles-js"></div>
+  <div class="cursor" id="cursor"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-2">
+    <div class="container">
+      <a class="navbar-brand" href="#hero">MyPortfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#showcase">Showcase</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="content text-center">
+      <h1 class="glitch">My Portfolio</h1>
+      <h2 class="typing"></h2>
+      <div class="mt-4">
+        <a class="btn btn-custom" href="#projects">Explore Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO (already included above) -->
+
+  <!-- ABOUT -->
+  <section id="about" class="section section-dark">
+    <div class="container text-center">
+      <h2 class="glitch">About Me</h2>
+      <p class="lead mt-3">I build interactive, playful web experiences — neon, motion and delightful micro-interactions
+        are my jam.</p>
+      <div class="mt-4 d-flex justify-content-center gap-3">
+        <!-- waving SVG -->
+        <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#00eaff" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 11l3 3L22 4"></path>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section section-alt">
+    <div class="container">
+      <h2 class="text-center glitch mb-5">Experience</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="fancy-card tilt">
+            <h4>Frontend Intern</h4>
+            <p><small>2023 – 2024</small></p>
+            <p>Worked on interactive dashboards, added animations, and collaborated with designers to bring ideas to
+              life.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="fancy-card tilt">
+            <h4>Freelance Projects</h4>
+            <p><small>2022 – Present</small></p>
+            <p>Built playful websites for startups and personal portfolios with custom transitions and GSAP motion.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section section-dark">
+    <div class="container">
+      <h2 class="text-center glitch mb-4">Projects</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="fancy-card tilt">
+            <h4>Project Alpha</h4>
+            <p>Interactive landing page</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="fancy-card tilt">
+            <h4>Project Beta</h4>
+            <p>Animated portfolio</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="fancy-card tilt">
+            <h4>Project Gamma</h4>
+            <p>Neon visual experiments</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="fancy-card tilt">
+            <h4>Project Delta</h4>
+            <p>Dark themed SaaS design</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="fancy-card tilt">
+            <h4>Project Epsilon</h4>
+            <p>Scroll-triggered animations</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="fancy-card tilt">
+            <h4>Project Zeta</h4>
+            <p>Horizontal gallery showcase</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HORIZONTAL SHOWCASE (unchanged) -->
+
+  <!-- SERVICES -->
+  <section id="services" class="section section-alt">
+    <div class="container">
+      <h2 class="text-center glitch mb-5">Services</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="fancy-card tilt text-center p-4">
+            <svg width="48" height="48" fill="none" stroke="#00eaff" stroke-width="1.8">
+              <circle cx="24" cy="24" r="20" />
+            </svg>
+            <h5 class="mt-3">Web Design</h5>
+            <p>Clean, modern layouts with playful interactions that feel alive.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="fancy-card tilt text-center p-4">
+            <svg width="48" height="48" fill="none" stroke="#ff00ff" stroke-width="1.8">
+              <rect x="6" y="6" width="36" height="36" rx="4" />
+            </svg>
+            <h5 class="mt-3">Development</h5>
+            <p>Responsive sites with smooth animations and GSAP-powered motion.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="fancy-card tilt text-center p-4">
+            <svg width="48" height="48" fill="none" stroke="#fff" stroke-width="1.8">
+              <polygon points="12,2 2,22 22,22" />
+            </svg>
+            <h5 class="mt-3">Branding</h5>
+            <p>Custom digital identities and design systems with flair.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section section-dark">
+    <div class="container">
+      <h2 class="text-center glitch mb-5">Testimonials</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="fancy-card tilt">
+            <p>"An absolute wizard with animations — our website feels alive!"</p>
+            <small>— Client A</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="fancy-card tilt">
+            <p>"Delivered beyond expectations, added interactions that wowed our users."</p>
+            <small>— Client B</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="fancy-card tilt">
+            <p>"A playful yet professional style, exactly what we needed."</p>
+            <small>— Client C</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS (already in your file) -->
+
+  <!-- BLOG -->
+  <section id="blog" class="section section-alt">
+    <div class="container">
+      <h2 class="text-center glitch mb-5">Articles</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="fancy-card tilt">
+            <img src="https://picsum.photos/600/400?random=31" class="w-100 mb-3 rounded" alt="">
+            <h5>How to use GSAP for Portfolio Animations</h5>
+            <p class="small">Learn to add scroll-triggered transitions that make your site pop.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="fancy-card tilt">
+            <img src="https://picsum.photos/600/400?random=32" class="w-100 mb-3 rounded" alt="">
+            <h5>Designing Dark Mode Websites</h5>
+            <p class="small">Tips for color contrast, neon highlights, and accessibility.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="fancy-card tilt">
+            <img src="https://picsum.photos/600/400?random=33" class="w-100 mb-3 rounded" alt="">
+            <h5>Micro-Interactions in UI</h5>
+            <p class="small">How subtle animations create delightful experiences for users.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT (already in your file) -->
+
+  <!-- FOOTER (already in your file) -->
+
+
+  <!-- ABOUT -->
+  <section id="about" class="section section-dark">
+    <div class="container text-center">
+      <h2 class="glitch">About Me</h2>
+      <p class="lead mt-3">I build interactive, playful web experiences — neon, motion and delightful micro-interactions
+        are my jam.</p>
+      <div class="mt-4 d-flex justify-content-center gap-3">
+        <!-- waving SVG -->
+        <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#00eaff" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 11l3 3L22 4"></path>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS (regular vertical grid) -->
+  <section id="projects" class="section section-alt">
+    <div class="container">
+      <h2 class="text-center glitch mb-4">Projects</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="fancy-card tilt">
+            <h4>Project Alpha</h4>
+            <p>Interactive landing page</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="fancy-card tilt">
+            <h4>Project Beta</h4>
+            <p>Animated portfolio</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="fancy-card tilt">
+            <h4>Project Gamma</h4>
+            <p>Neon visual experiments</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HORIZONTAL SHOWCASE (pinned, horizontal scroll) -->
+  <section id="showcase" class="section section-dark">
+    <div class="container-fluid">
+      <h2 class="text-center glitch mb-4">Showcase</h2>
+      <div class="horizontal-gallery">
+        <div class="gallery-track">
+          <div class="gallery-card"><img src="https://picsum.photos/800/1200?random=11" alt=""></div>
+          <div class="gallery-card"><img src="https://picsum.photos/800/1200?random=12" alt=""></div>
+          <div class="gallery-card"><img src="https://picsum.photos/800/1200?random=13" alt=""></div>
+          <div class="gallery-card"><img src="https://picsum.photos/800/1200?random=14" alt=""></div>
+          <div class="gallery-card"><img src="https://picsum.photos/800/1200?random=15" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section section-alt">
+    <div class="container text-center">
+      <h2 class="glitch">Skills</h2>
+      <!-- coding brackets svg -->
+      <svg width="86" height="86" viewBox="0 0 24 24" fill="none" stroke="#ff00ff" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round" class="mt-3 mb-2">
+        <path d="M16 18l6-6-6-6"></path>
+        <path d="M8 6l-6 6 6 6"></path>
+      </svg>
+      <p class="mt-3">HTML · CSS · JavaScript · GSAP · Bootstrap · Motion Design</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section section-dark">
+    <div class="container text-center">
+      <h2 class="glitch">Contact</h2>
+      <svg width="86" height="86" viewBox="0 0 24 24" fill="none" stroke="#00eaff" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round" class="mt-3 mb-2">
+        <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
+        <path d="M22 6l-10 7L2 6"></path>
+      </svg>
+      <p class="mt-3">Want to collaborate? <a class="btn btn-custom ms-2" href="mailto:example@email.com">Email me</a>
+      </p>
+    </div>
+  </section>
+
+  <footer class="py-5 text-center">
+    © 2025 My Portfolio — built with motion & ❤️
+  </footer>
+
+  <!-- libs: GSAP, ScrollTrigger, particles.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <!-- your external script -->
+  <script src="script.js"></script>
+</body>
+
+</html>

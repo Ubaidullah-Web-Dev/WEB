@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #0d001f;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar {
+            background-color: #1a0033;
+        }
+
+        .highlight {
+            color: #a566ff;
+            font-weight: bold;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 50px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 100px;
+            bottom: 100px;
+            width: 4px;
+            background: #5a2acb;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 50px 0;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            top: 130px;
+            width: 70px;
+            height: 4px;
+            background: #5a2acb;
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            left: 50%;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            right: 50%;
+        }
+
+        .cib-card {
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 20px;
+            }
+
+            .timeline-item::before {
+                display: none;
+            }
+
+            .cib-card {
+                width: 100% !important;
+                margin-left: 40px;
+            }
+        }
+
+
+
+        .cib-card {
+            background: linear-gradient(145deg, #2b0a5a, #17032b, #3b0f7d, #1a012f);
+            background-size: 400% 400%;
+            border-radius: 20px;
+            padding: 20px;
+            color: #fff;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: gradientShift 8s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .cib-card:hover {
+            animation: breathe 4s ease-in-out infinite, gradientShift 4s ease infinite;
+            box-shadow: 0 20px 40px rgb(61, 19, 93),
+                30px 0 70px rgb(52, 23, 80);
+        }
+
+        @keyframes breathe {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* .cib-card::before:hover {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 300%;
+            background: linear-gradient(120deg,
+                    rgba(216, 0, 0, 0) 0%,
+                    rgba(255, 255, 255, 0.2) 50%,
+                    rgba(255, 255, 255, 0) 100%);
+            transform: rotate(25deg);
+            animation: shimmer 3s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%) rotate(25deg);
+            }
+
+            100% {
+                transform: translateX(100%) rotate(25deg);
+            }
+        } */
+
+        .cib-card:hover .cib-icon {
+            animation: bounce 0.6s ease;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .cib-btn {
+            background-color: #5a2acb;
+            border: none;
+            border-radius: 10px;
+            padding: 8px 16px;
+            color: #fff;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .cib-btn:hover {
+            background-color: orange;
+            box-shadow: 0 0 15px orange, 0 0 30px rgba(255, 165, 0, 0.6);
+        }
+
+        .logo {
+            width: 200px;
+            cursor: pointer;
+            transition: transform 0.4s ease, filter 0.4s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.2) rotate(3deg);
+            filter: drop-shadow(0 0 12px #ff00cc) drop-shadow(0 0 24px #3333ff);
+        }
+
+        @keyframes gradient-shift {
+            0% {
+                stop-color: #ff00cc;
+            }
+
+            50% {
+                stop-color: #00f0ff;
+            }
+
+            100% {
+                stop-color: #3333ff;
+            }
+        }
+
+        .logo:hover stop {
+            animation: gradient-shift 2s infinite alternate;
+        }
+
+        .logo:hover text {
+            animation: wiggle 0.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes wiggle {
+            from {
+                transform: translateX(-10px);
+            }
+
+            to {
+                transform: translateX(5px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <div class="container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="250" height="60" viewBox="0 0 250 60" class="logo">
+                <defs>
+                    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#9900ff;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#09d53f;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <text x="10" y="40" font-family="monospace" font-size="28" fill="url(#grad)"
+                    font-weight="bold">&lt;/&gt;</text>
+                <text x="70" y="40" font-family="Verdana, sans-serif" font-size="32" fill="url(#grad)"
+                    font-weight="bold">Ubaid</text>
+            </svg>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-lg-5 gap-md-5 gap-sm-2">
+                    <li class="nav-item"><a class="nav-link text-lg-start text-md-start text-center"
+                            href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link text-lg-start text-md-start text-center"
+                            href="About.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link text-lg-start text-md-start text-center"
+                            href="ContactUs.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-warning fw-bold text-center display-1 p-5 mt-5">About Me!</h1>
+                    <div class="row my-5">
+                        <p class="text-white fw-bold fs-5 col-lg-6 col-md-6 col-sm-12">“From customizing Linux rice to
+                            crafting
+                            responsive
+                            websites, I’m always tweaking for perfection.”</p>
+                        <p class="highlight fw-bold fs-5 col-lg-6 col-md-6 col-sm-12">“Not an influencer, but my CSS has
+                            plenty of
+                            followers.”</p>
+                    </div>
+                    <div class="row">
+                        <p class="highlight fw-bold fs-5 col-lg-6 col-md-6 col-sm-12">“I’m a web developer who believes
+                            every pixel should
+                            have a purpose.”</p>
+                        <p class="text-white fw-bold fs-5 col-lg-6 col-md-6 col-sm-12">“I write code that browsers love,
+                            users enjoy, and
+                            developers don’t hate maintaining.”</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="timeline">
+        <div class="container">
+            <div class="timeline-line"></div>
+            <div class="row timeline-item">
+                <div class="col-12 col-md-6">
+                    <div class="cib-card left me-lg-5">
+                        <p class="highlight fw-bold fs-1 p-3">About!</p>
+                        <ul class="list">
+                            <li>
+                                <p class="text-white fs-5">Living in <a class="fs-5" href="#">Pakistan</a></p>
+                            </li>
+                            <li>
+                                <p class="text-white fs-5">Graduated from High School</p>
+                            </li>
+                            <li>
+                                <p class="text-white fs-5">Looking for a Job as a Developer</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row timeline-item">
+                <div class="col-12 col-md-6 offset-md-6">
+                    <div class="cib-card right ms-lg-5">
+                        <p class="highlight fw-bold fs-1 p-3">Experience!</p>
+                        <ul class="list">
+                            <li>
+                                <p class="text-white fs-5">Learning</p>
+                            </li>
+                            <li>
+                                <p class="fs-5 text-white">Honing the skills from Alpha-Soft-360</p>
+                            </li>
+                            <li>
+                                <p class="fs-5 text-white">Experience in Affiliate Marketing</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 pb-5">
+                    <p class="text-warning fs-2 fw-bold pb-5">Contact</p>
+                    <p class="text-white fw-bold w-75">I'm currently looking to join a cross-functional team that
+                        values
+                        improving people's lives
+                        through accessible design. or have a project in mind? Let's connect.</p>
+                    <a class=" text-decoration-none pt-5 link-hover">ubaidullah.web.dev@gmail.com</a>
+                    <ul class="list-unstyled d-flex gap-5 py-5">
+                        <li>
+                            <img src="icons8-github-32.png" width="30px" height="30px"
+                                class="b-icon-hover bg-white rounded-3" href="https://github.com/Ubaidullah-Web-Dev">
+                        </li>
+                        <li class="list-hover">
+                            <img src="icons8-linkedin-32.png" width="30px" height="30px"
+                                class="b-icon-hover bg-white rounded-3">
+                        </li>
+                        <li class="list-hover">
+                            <img src="icons8-gmail-50.png" width="30px" height="30px"
+                                class="b-icon-hover bg-white rounded-3">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

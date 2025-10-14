@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechLogo PSD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <style>
+        .background-color {
+            background-color: #06071B;
+        }
+
+        .card {
+            color: white;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(120deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent);
+            transform: skewX(-20deg);
+            pointer-events: none;
+        }
+
+        .card:hover::after {
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -75%;
+            }
+
+            100% {
+                left: 125%;
+            }
+        }
+
+
+        .btn-hover:hover {
+            transition: all 0.8s ease-in-out;
+            width: 100px;
+            height: 50px;
+            transform: translateY(10px);
+            border-radius: 20px;
+            background-color: #279c61;
+        }
+
+        .link-hover:hover {
+            color: darkcyan;
+            border-bottom: 3px solid grey;
+            margin: 0px;
+        }
+
+        .icon-hover:hover {
+            width: 30px;
+            height: 30px;
+        }
+
+        .section,
+        .reveal {
+            opacity: 0;
+            transform: translateY(var(--reveal-ty, 24px)) translateX(var(--reveal-tx, 0));
+            filter: blur(6px);
+            transition:
+                opacity 1.5s ease,
+                transform 1.5s cubic-bezier(.19, 1, .22, 1),
+                filter 1.5s ease;
+            will-change: opacity, transform, filter;
+        }
+
+        .section.is-visible,
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translate(0, 0);
+            filter: blur(0);
+        }
+
+        .from-left {
+            --reveal-tx: -32px;
+            --reveal-ty: 0;
+        }
+
+        .from-right {
+            --reveal-tx: 32px;
+            --reveal-ty: 0;
+        }
+
+        .from-bottom {
+            --reveal-ty: 32px;
+        }
+
+        .delay-1 {
+            transition-delay: .10s;
+        }
+
+        .delay-2 {
+            transition-delay: .25s;
+        }
+
+        .delay-3 {
+            transition-delay: .40s;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .section,
+            .reveal {
+                transition: none;
+                opacity: 1 !important;
+                transform: none !important;
+                filter: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-color">
+        <header>
+            <nav class="navbar navbar-dark d-lg-none">
+                <div class="container">
+                    <div class="d-flex justify-content-center">
+                        <img src="Frame.png" class="">
+                    </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </nav>
+            <div class="container d-lg-none">
+                <div class="collapse" id="navbarToggleExternalContent">
+                    <div class="row align-items-center justify-content-between p-5">
+                        <div class="flex-column align-items-center nav list-unstyled justify-content-center gap-4">
+                            <li class="nav-item"><a class="text-white text-decoration-none fw-bold fs-4 link-hover">Home</a></li>
+                            <li class="nav-item"><a class="text-white text-decoration-none fw-bold fs-4 link-hover">Updates</a>
+                            </li>
+                            <li class="nav-item"><a class="text-white text-decoration-none fw-bold fs-4 link-hover">Services</a>
+                            </li>
+                            <li class="nav-item"><a class="text-white text-decoration-none fw-bold fs-4 link-hover">Features</a>
+                            </li>
+                            <li class="nav-item"><a class="text-white text-decoration-none fw-bold fs-4 link-hover">About Us</a>
+                            </li>
+                        </div>
+                        <div class="d-flex flex-column align-items-center nav justify-content-center gap-4">
+                            <li class="nav-item"><button class="btn btn-warning fs-4 btn-hover">Sign Up</button></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-none d-lg-block p-3" style="border-bottom: 4px solid grey;">
+                <div class="container pt-3">
+                    <div class="row align-items-center justify-content-arouund">
+                        <div class="col-md-6 col-lg-4 d-flex pe-5 justify-content-md-start">
+                            <img src="Frame.png" class="">
+                        </div>
+                        <div class="col-md-6 col-lg-4 nav list-unstyled justify-content-center gap-4">
+                            <li class="nav-item"><a class="text-white text-decoration-none link-hover">Home</a></li>
+                            <li class="nav-item"><a class="text-white text-decoration-none link-hover">Updates</a></li>
+                            <li class="nav-item"><a class="text-white text-decoration-none link-hover">Services</a></li>
+                            <li class="nav-item"><a class="text-white text-decoration-none link-hover">Features</a></li>
+                            <li class="nav-item"><a class="text-white text-decoration-none link-hover">About Us</a></li>
+                        </div>
+                        <div class="col-lg-4 nav justify-content-end gap-3 d-flex align-items-center float-end">
+                            <li class="nav-item"><img src="Language.png"></li>
+                            <li class="nav-item"><button class="btn btn-warning btn-hover">Sign Up</button></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    <main>
+        <div class="background-color">
+            <section class="section from-bottom reveal" data-reveal="repeat">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 mt-5 pt-5 pb-4">
+                            <p class="text-white">Ai & Robotics</p>
+                            <img src="Container.png" style="margin-left: 190px;">
+                            <h1 class="text-white fw-bold text-start">Next Level<br>Machine<br>intelligence</h1>
+                            <img src="Vector 69.png" class="d-block m-auto pb-4 pt-3 ms-5 ps-5">
+                            <button class="btn btn-lg btn-warning">Play Demo</button>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <img src="Frame69.png" class="img-fluid">
+                        </div>
+                        <div class="col-12 text-center">
+                            <img src="Scroll.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 pb-5 mb-5">
+                    <img src="robot-hand-finger-pointing-ai-technology-backgrou-2022-09-16-09-23-42-utc 1.png"
+                        class="img-fluid">
+                </div>
+            </section>
+
+            <section class="section from-bottom reveal" data-reveal="bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="text-white fs-5 text-center">WHO WE ARE</p>
+                            <p class="text-white fw-bold fs-2 text-center">We Help To Get Solutions</p>
+                            <p class="text-white fs-5 text-center w-75 pt-5 m-auto">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem nesciunt tenetur neque
+                                dolor earum incidunt iste voluptates vel ipsum laborum, beatae eius qui. Accusantium quo
+                                quae, minus aliquam reiciendis et.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row py-5 justify-content-center text-center">
+                        <div class="col-sm-12 col-md-6 col-lg-5 d-flex justify-content-center align-items-center mb-4">
+                            <img src="Rocket.png" class="img-fluid pe-3" alt="Rocket">
+                            <div>
+                                <p class="text-white fs-4 fw-bold text-start">Lorem ipsum</p>
+                                <p class="text-white text-start">Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting
+                                    industry.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-5 d-flex justify-content-center align-items-center mb-4">
+                            <img src="Bulb.png" class="img-fluid pe-3" alt="Bulb">
+                            <div>
+                                <p class="text-white fs-4 fw-bold text-start">Lorem ipsum</p>
+                                <p class="text-white text-start">Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting
+                                    industry.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section from-bottom reveal" data-reveal="repeat">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <p class="text-white fw-bold fs-3 text-lg-start text-md-start text-center">Upcoming
+                                Events
+                            </p>
+                        </div>
+                        <div
+                            class="col-lg-6 col-md-12 col-sm-12 d-lg-flex  gap-3 mb-5 text-lg-end text-md-center text-center justify-content-end">
+                            <div class="dropdown mb-3">
+                                <button class="btn btn-light rounded-pill px-4 dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown">
+                                    Weekdays
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Monday</a></li>
+                                    <li><a class="dropdown-item" href="#">Tuesday</a></li>
+                                    <li><a class="dropdown-item" href="#">Wednesday</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown mb-3">
+                                <button class="btn btn-light rounded-pill px-4 dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown">
+                                    Event Type
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Casual</a></li>
+                                    <li><a class="dropdown-item" href="#">Fancy</a></li>
+                                    <li><a class="dropdown-item" href="#">Meetup</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown mb-3">
+                                <button class="btn btn-light rounded-pill px-4 dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown">
+                                    Any Category
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">1</a></li>
+                                    <li><a class="dropdown-item" href="#">2</a></li>
+                                    <li><a class="dropdown-item" href="#">3</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 gap-5">
+                            <div class="card mb-5 rounded-top-5 rounded-bottom-4">
+                                <div class="background-color">
+                                    <div class="row">
+                                        <img src="Pic1.png" class="img-fluid">
+                                        <div class="col-2 pt-5 ps-4">
+                                            <small class="text-warning">APR</small>
+                                            <p class="text-warning fs-2 fw-bold">14</p>
+                                        </div>
+                                        <div class="col-10">
+                                            <p class="text-white fw-bold fs-4">Lorem ipsum dolor sit amet consectetur.
+                                                Mi
+                                                massa.</p>
+                                            <p class="text-white">We’ll get you directly seated and inside for you to
+                                                enjoy
+                                                the show.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="card mb-5  rounded-top-5 rounded-bottom-4">
+                                <div class="background-color">
+                                    <div class="row">
+                                        <img src="Pic2.png" class="img-fluid">
+                                        <div class="col-2 pt-5 ps-4">
+                                            <small class="text-warning">AUG</small>
+                                            <p class="text-warning fs-3 fw-bold">20</p>
+                                        </div>
+                                        <div class="col-10">
+                                            <p class="text-white fw-bold fs-4">Lorem ipsum dolor sit amet consectetur.
+                                                Mi
+                                                massa.</p>
+                                            <p class="text-white">We’ll get you directly seated and inside for you to
+                                                enjoy
+                                                the show.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="card mb-5 rounded-top-5 rounded-bottom-4">
+                                <div class="background-color">
+                                    <div class="row">
+                                        <img src="Pic3.png" class="img-fluid">
+                                        <div class="col-2 pt-5 ps-4">
+                                            <small class="text-warning">SEP</small>
+                                            <p class="text-warning fs-2 fw-bold">18</p>
+                                        </div>
+                                        <div class="col-10">
+                                            <p class="text-white fw-bold fs-4">Lorem ipsum dolor sit amet consectetur.
+                                                Mi
+                                                massa.</p>
+                                            <p class="text-white">We’ll get you directly seated and inside for you to
+                                                enjoy
+                                                the show.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="card mb-5 rounded-top-5 rounded-bottom-4">
+                                <div class="background-color">
+                                    <div class="row">
+                                        <img src="Pic4.png" class="img-fluid">
+                                        <div class="col-2 pt-5 ps-4">
+                                            <small class="text-warning">APR</small>
+                                            <p class="text-warning fs-2 fw-bold">14</p>
+                                        </div>
+                                        <div class="col-10">
+                                            <p class="text-white fw-bold fs-4">Lorem ipsum dolor sit amet consectetur.
+                                                Mi
+                                                massa.</p>
+                                            <p class="text-white">We’ll get you directly seated and inside for you to
+                                                enjoy
+                                                the show.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="card mb-5 rounded-top-5 rounded-bottom-4">
+                                <div class="background-color">
+                                    <div class="row">
+                                        <img src="Pic5.png" class="img-fluid">
+                                        <div class="col-2 pt-5 ps-4">
+                                            <small class="text-warning">AUG</small>
+                                            <p class="text-warning fs-3 fw-bold">20</p>
+                                        </div>
+                                        <div class="col-10">
+                                            <p class="text-white fw-bold fs-4">Lorem ipsum dolor sit amet consectetur.
+                                                Mi
+                                                massa.</p>
+                                            <p class="text-white">We’ll get you directly seated and inside for you to
+                                                enjoy
+                                                the show.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="card mb-5 rounded-top-5 rounded-bottom-4">
+                                <div class="background-color">
+                                    <div class="row">
+                                        <img src="Pic6.png" class="img-fluid">
+                                        <div class="col-2 pt-5 ps-4">
+                                            <small class="text-warning">SEP</small>
+                                            <p class="text-warning fs-2 fw-bold">18</p>
+                                        </div>
+                                        <div class="col-10">
+                                            <p class="text-white fw-bold fs-4">Lorem ipsum dolor sit amet consectetur.
+                                                Mi
+                                                massa.</p>
+                                            <p class="text-white">We’ll get you directly seated and inside for you to
+                                                enjoy
+                                                the show.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-12 text-center mb-5">
+                            <button class="btn btn-lg btn-warning rounded-pill">Load More</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container pt-5">
+                    <div class="row text-center">
+                        <p class="text-white">Rhoncus, Accumsan Dictum</p>
+                        <p class="text-white fw-bold fs-1 w-75 m-auto pb-3">Etiam nulla lectus amet nunc molestie at
+                            vulputate.</p>
+                        <p class="text-white">Neque, pulvinar vestibulum non aliquam.</p>
+                        <img src="Image69.png" class="img-fluid py-5">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="section from-bottom reveal" data-reveal="repeat">
+        <div class="background-color">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <ul class="list-unstyled lh-lg text-md-center text-sm-center">
+                            <li class="nav-item"><a class="text-decoration-none fs-4 fw-bold text-white">Product</a>
+                            </li>
+                            <li class="nav-item"><a class="text-decoration-none text-white opacity-50 link-hover">Diam orci</a>
+                            </li>
+                            <li class="nav-item"><a class="text-decoration-none text-white opacity-50 link-hover">Mi Fugiat</a>
+                            </li>
+                            <li class="nav-item"><a class="text-decoration-none text-white opacity-50 link-hover">Netus
+                                    Fermentam</a></li>
+                            <li class="nav-item"><a class="text-decoration-none text-white opacity-50 link-hover">Suspendisse
+                                    viverra</a></li>
+                            <li class="nav-item"><a class="text-decoration-none text-white opacity-50 link-hover">Id Dolor</a></li>
+                            <li class="nav-item"><a class="text-decoration-none text-white opacity-50 link-hover">Erat Mattis</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <ul class="list-unstyled lh-lg text-md-center text-sm-center">
+                            <li class="nav-item"><a class="text-decoration-none fs-4 fw-bold text-white">Information</a>
+                            </li>
+                            <li class="nav-item"><a class="text-decoration-none text-white opacity-50 link-hover">Nibh</a></li>
+                            <li class="nav-item"><a class="text-decoration-none text-white opacity-50 link-hover">Egastas</a></li>
+                            <li class="nav-item"><a class="text-decoration-none text-white opacity-50 link-hover">Dictum</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-12 col-sm-12">
+                        <ul class="list-unstyled lh-lg text-md-center text-sm-center">
+                            <li class="nav-item"><a class="text-decoration-none fs-4 fw-bold text-white">Company</a>
+                            </li>
+                            <li class="nav-item"><a class="text-decoration-none text-white opacity-50 link-hover">Id Maecenas</a>
+                            </li>
+                            <li class="nav-item"><a class="text-decoration-none text-white opacity-50 link-hover">Id Orci</a></li>
+                            <li class="nav-item"><a class="text-decoration-none text-white opacity-50 link-hover">Magna
+                                    Ultricies</a></li>
+                            <li class="nav-item"><a class="text-decoration-none text-white opacity-50 link-hover">Quis Riscus</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-12 col-sm-12 pb-5">
+                        <div class="bg-black p-3">
+                            <p class="text-white fw-bold fs-4">Subscribe</p>
+                            <img src="Frame 1149.png" class="img-fluid">
+                            <p class="text-white">Gravida sed justo, justo, id est et. Amet tristique convallis sed
+                                porttitor nullam eu ut. Duis et odio aliquam bibendum. Metus et lectus id viverra
+                                fringilla magna morbi. </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 pb-5 text-lg-start text-md-start text-center">
+                        <a class="text-decoration-none text-white pe-5 link-hover">Terms</a>
+                        <a class="text-decoration-none text-white pe-5 link-hover">Privacy</a>
+                        <a class="text-decoration-none text-white pe-5 link-hover">Cookies</a>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 text-lg-end text-md-end text-center pb-5">
+                        <img src="Group2.png" class="img-fluid p5 icon-hover" width="20px" height="20px">
+                        <img src="Group.png" class="img-fluid pe-5 icon-hover" width="20px" height="20px">
+                        <img src="Group3.png" class="img-fluid icon-hover" width="20px" height="20px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.section, .reveal');
+
+            if (!('IntersectionObserver' in window)) {
+                const fallback = () => {
+                    const h = window.innerHeight || document.documentElement.clientHeight;
+                    items.forEach(el => {
+                        const r = el.getBoundingClientRect();
+                        if (r.top <= h * 0.9) el.classList.add('is-visible');
+                    });
+                };
+                fallback();
+                window.addEventListener('scroll', fallback, { passive: true });
+                return;
+            }
+
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const el = entry.target;
+                    const repeat = el.dataset.reveal === 'repeat';
+
+                    if (entry.isIntersecting) {
+                        el.classList.add('is-visible');
+                        if (!repeat) io.unobserve(el);
+                    } else if (repeat) {
+                        el.classList.remove('is-visible');
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.12,
+                rootMargin: '0px 0px -10% 0px'
+            });
+
+            items.forEach(el => io.observe(el));
+        });
+    </script>
+</body>
+
+</html>

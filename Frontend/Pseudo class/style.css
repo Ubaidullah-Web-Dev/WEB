@@ -1,0 +1,27 @@
+body{
+    background-color: darkgrey;
+}
+a:link{
+    color: red;
+}
+a:visited{
+    color: limegreen;
+}
+a:hover{
+    color: aqua;
+    font-size: 22px;
+}
+a:active{
+    color: blueviolet;
+}
+div .Style{
+    border: 2px;
+    background-color: black;
+    padding: 15px;
+}
+div:hover{
+    color: crimson;
+    font-size: 22px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 900;
+}
