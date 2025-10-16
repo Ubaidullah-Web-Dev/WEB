@@ -1,16 +1,11 @@
-/* -----------------------------
-   Global & Background Animation
------------------------------- */
 body {
   background: #2c3544;
   font-family: 'Poppins', sans-serif;
   margin: 0;
   overflow-x: hidden;
-  position: relative;
   color: white;
 }
 
-/* Animated gradient background */
 .background-animation {
   position: fixed;
   top: 0;
@@ -25,14 +20,19 @@ body {
 }
 
 @keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-/* -----------------------------
-   Weather Card Layout
------------------------------- */
 .weather-card {
   display: flex;
   border-radius: 20px;
@@ -48,29 +48,20 @@ body {
   box-shadow: 0 30px 55px rgba(0, 0, 0, 0.6);
 }
 
-/* -----------------------------
-   Left Panel
------------------------------- */
 .left-card {
   position: relative;
   flex: 0.9;
-  background: linear-gradient(180deg, rgba(67, 169, 246, 0.8), #29323c), 
-              url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60');
+  background: linear-gradient(180deg, rgba(67, 169, 246, 0.8), #29323c);
   background-size: cover;
   background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
   transition: all 0.4s ease;
   overflow: hidden;
-  animation: gradientMove 10s ease infinite;
 }
 
-/* Animated ocean overlay */
 .left-card .overlay {
-  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -82,27 +73,23 @@ body {
 }
 
 @keyframes moveWaves {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
-/* -----------------------------
-   Right Panel
------------------------------- */
 .right-card {
   flex: 1.1;
   background-color: rgba(31, 37, 49, 0.95);
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all 0.4s ease;
 }
 
-/* -----------------------------
-   Forecast Tiles
------------------------------- */
 .forecast .day {
   background-color: rgba(44, 53, 68, 0.9);
   border-radius: 12px;
@@ -111,7 +98,6 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(8px);
 }
 
 .forecast .day:hover {
@@ -125,9 +111,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* -----------------------------
-   Buttons & Effects
------------------------------- */
+/* Button */
 .btn-gradient {
   background: linear-gradient(90deg, #64b5f6, #5c6bc0);
   color: white;
@@ -141,39 +125,70 @@ body {
 
 .btn-gradient:hover {
   transform: translateY(-4px);
-  /* animation: gradientMove 7s ease infinite; */
   opacity: 0.95;
   box-shadow: 0px 8px 22px #5c6bc0;
 }
 
-/* -----------------------------
-   Animations
------------------------------- */
-.fade-in {
-  animation: fadeIn 1s ease-in forwards;
+/* Search bar */
+.search-container {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 5px 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.search-container:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
 }
 
-/* -----------------------------
-   Responsive Design
------------------------------- */
+.search-container input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 10px 15px;
+  width: 250px;
+}
+
+.search-container input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.search-container button {
+  background: linear-gradient(90deg, #64b5f6, #5c6bc0);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-container button:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .weather-card {
     flex-direction: column;
     width: 90%;
   }
 
-  .left-card, .right-card {
-    border-radius: 0;
-    flex: unset;
-    min-width: 100%;
+  .search-container {
+    top: 20px;
+    width: 90%;
   }
 
-  .forecast {
-    justify-content: space-around;
+  .search-container input {
+    width: 100%;
   }
 }
