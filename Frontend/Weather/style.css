@@ -131,11 +131,11 @@ body {
 
 /* Search bar */
 .search-container {
-  position: absolute;
-  top: 40px;
+  position: relative;
+  /* top: 40px; */
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
+  /* display: flex; */
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   border-radius: 30px;
@@ -150,18 +150,23 @@ body {
 
 .search-container input {
   background: transparent;
+  font-family: sans-serif;
+  font-weight: bold;
   border: none;
   outline: none;
   color: white;
   padding: 10px 15px;
-  width: 250px;
+  width: 260px;
+  text-transform: uppercase;
 }
 
 .search-container input::placeholder {
   color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
 }
 
 .search-container button {
+  margin-left: 50px;
   background: linear-gradient(90deg, #64b5f6, #5c6bc0);
   border: none;
   border-radius: 50%;
@@ -176,19 +181,10 @@ body {
   transform: scale(1.1);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .weather-card {
     flex-direction: column;
     width: 90%;
   }
 
-  .search-container {
-    top: 20px;
-    width: 90%;
-  }
-
-  .search-container input {
-    width: 100%;
-  }
 }

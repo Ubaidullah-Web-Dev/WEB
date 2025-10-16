@@ -12,10 +12,6 @@
 
 <body>
   <div class="background-animation"></div>
-  <div class="search-container">
-    <input type="text" id="city-input" placeholder="Enter city name..." />
-    <button id="search-btn"><i class="bi bi-search"></i></button>
-  </div>
   <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="weather-card d-flex flex-wrap">
       <div class="left-card text-white p-4">
@@ -65,9 +61,10 @@
             <span>26°C</span>
           </div>
         </div>
-        <button class="btn btn-gradient w-100 fade-in" id="change-location">
-          <i class="bi bi-geo-alt"></i> Change Location
-        </button>
+        <div class="search-container">
+          <input type="text" id="city-input" placeholder="Enter city name..." />
+          <button id="search-btn"><i class="bi bi-search"></i></button>
+        </div>
       </div>
     </div>
   </div>
