@@ -9,7 +9,7 @@
 </head>
 
 <body class="bg-gray-900 text-gray-100 min-h-screen p-6 flex flex-col items-center">
-    <h1 class="text-4xl font-bold mb-6">Random Users</h1>
+    <h1 class="text-4x1 font-bold mb-6">Random Users</h1>
     <table class="w-full max-w-3xl text-left bg-gray-800 rounded-lg">
         <thead class="bg-gray-600">
             <tr>
@@ -20,19 +20,47 @@
         </thead>
         <tbody id="userTable"></tbody>
     </table>
+    <div class="flex gap-4 mt-6">
+        <button id="prevBtn" class="bg-cyan-700 px-4 py-2 rounded">Previous</button>
+        <button id="nextBtn" class="bg-cyan-700 px-4 py-2 rounded">Next</button>
+    </div>
     <script>
-        fetch("https://randomuser.me/api/?results=5")
+        let users = [];
+        let start = 0;
+        let showCount = 10;
+        fetch("https://randomuser.me/api/?results=100")
             .then(response => response.json())
             .then(data => {
-                data.results.forEach(user => {
-                    userTable.innerHTML += `
-        <tr class="hover:bg-blue-600">
-          <td class="p-3">${user.name.first} ${user.name.last}</td>
-          <td class="p-3">${user.email}</td>
-          <td class="p-3">${user.location.country}</td>
-        </tr>`;
-                });
+                users = data.results;
+                showUsers();
             });
+        function showUsers() {
+            let table = document.getElementById("userTable");
+            table.innerHTML = "";
+
+            for (let i = start; i < start + showCount; i++) {
+                let user = users[i];
+                table.innerHTML += `
+          <tr  class="hover:bg-cyan-900">
+            <td class="p-3">${user.name.first} ${user.name.last}</td>
+            <td class="p-3">${user.email}</td>
+            <td class="p-3">${user.location.country}</td>
+          </tr>
+        `;
+            }
+        }
+        document.getElementById("prevBtn").onclick = function () {
+            if (start > 0) {
+                start = start - showCount;
+                showUsers();
+            }
+        };
+        document.getElementById("nextBtn").onclick = function () {
+            if (start + showCount < users.length) {
+                start = start + showCount;
+                showUsers();
+            }
+        };
     </script>
 </body>
 
