@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Random Users</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-900 text-gray-100 min-h-screen p-6 flex flex-col items-center">
+    <h1 class="text-4xl font-bold mb-6">Random Users</h1>
+    <table class="w-full max-w-3xl text-left bg-gray-800 rounded-lg">
+        <thead class="bg-gray-600">
+            <tr>
+                <th class="p-3">Name</th>
+                <th class="p-3">Email</th>
+                <th class="p-3">Country</th>
+            </tr>
+        </thead>
+        <tbody id="userTable"></tbody>
+    </table>
+    <script>
+        fetch("https://randomuser.me/api/?results=5")
+            .then(response => response.json())
+            .then(data => {
+                data.results.forEach(user => {
+                    userTable.innerHTML += `
+        <tr class="hover:bg-blue-600">
+          <td class="p-3">${user.name.first} ${user.name.last}</td>
+          <td class="p-3">${user.email}</td>
+          <td class="p-3">${user.location.country}</td>
+        </tr>`;
+                });
+            });
+    </script>
+</body>
+
+</html>
